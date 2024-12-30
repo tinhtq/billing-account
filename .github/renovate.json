@@ -3,5 +3,6 @@
   "labels": ["dependencies"],
   "dependencyDashboard": false,
   "extends": ["config:recommended"],
-  "prHourlyLimit": 0
+  "prHourlyLimit": 0,
+  "gitAuthor": "Tinhtq Renovate Bot <truongquangtinh1997@gmail.com>"
 }

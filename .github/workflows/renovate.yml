@@ -19,12 +19,3 @@ jobs:
         env:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
           LOG_LEVEL: "debug"
-      - name: Test PR
-        uses: peter-evans/create-pull-request@v7
-        with:
-          commit-message: |
-            the first line is the commit message
-
-            the commit description starts
-            after a blank line and can be
-            multiple lines
