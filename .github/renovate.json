@@ -2,5 +2,6 @@
   "baseBranches": ["main"],
   "labels": ["dependencies"],
   "dependencyDashboard": false,
-  "extends": ["config:recommended"]
+  "extends": ["config:recommended"],
+  "prHourlyLimit": 0
 }
