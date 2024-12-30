@@ -22,3 +22,12 @@ jobs:
           RENOVATE_USERNAME: "tinhtq[bot]"
           RENOVATE_GIT_AUTHOR: "tinhtq-bot <truongquangtinh1997@gmail.com>"
           LOG_LEVEL: "debug"
+      - name: Test PR
+        uses: peter-evans/create-pull-request@v7
+        env:
+          commit-message: |
+            the first line is the commit message
+
+            the commit description starts
+            after a blank line and can be
+            multiple lines
