@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Home: React.FC = () => {
   return (
@@ -14,8 +14,8 @@ const Home: React.FC = () => {
         </button>
       </main>
     </div>
-  );
-};
+  )
+}
 
 const styles = {
   container: {
@@ -40,6 +40,6 @@ const styles = {
     borderRadius: "5px",
     cursor: "pointer",
   },
-};
+}
 
-export default Home;
+export default Home
