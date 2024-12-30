@@ -3,13 +3,5 @@
   "labels": ["dependencies"],
   "prHourlyLimit": 2,
   "dependencyDashboard": true,
-  "extends": [
-    "config:base",
-    ":preserveSemverRanges",
-    ":dependencyDashboard",
-    ":rebaseStalePrs",
-    ":enableVulnerabilityAlertsWithLabel('security')",
-    "group:recommended",
-    ":pinSkipCi"
-  ]
+  "extends": ["config:recommended"]
 }
