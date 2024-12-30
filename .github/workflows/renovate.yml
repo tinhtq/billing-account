@@ -24,7 +24,7 @@ jobs:
           LOG_LEVEL: "debug"
       - name: Test PR
         uses: peter-evans/create-pull-request@v7
-        env:
+        with:
           commit-message: |
             the first line is the commit message
 
