@@ -1,6 +1,6 @@
 {
   "baseBranches": ["main"],
   "labels": ["dependencies"],
-  "dependencyDashboard": true,
+  "dependencyDashboard": false,
   "extends": ["config:recommended"]
 }
