@@ -91,46 +91,16 @@ resource "aws_api_gateway_integration" "get_lambda_integration" {
   uri                     = aws_lambda_function.my_lambda.invoke_arn
 }
 
-resource "aws_api_gateway_method_response" "get_method_response" {
-  rest_api_id = aws_api_gateway_rest_api.my_api.id
-  resource_id = aws_api_gateway_resource.my_resource.id
-  http_method = aws_api_gateway_method.get_method.http_method
-  status_code = "200"
+# resource "aws_api_gateway_method_response" "get_method_response" {
+#   rest_api_id = aws_api_gateway_rest_api.my_api.id
+#   resource_id = aws_api_gateway_resource.my_resource.id
+#   http_method = aws_api_gateway_method.get_method.http_method
+#   status_code = "200"
 
-  response_parameters = {
-    "method.response.header.Access-Control-Allow-Origin" = true
-  }
-}
-
-
-resource "aws_api_gateway_method" "post_method" {
-  rest_api_id   = aws_api_gateway_rest_api.my_api.id
-  resource_id   = aws_api_gateway_resource.my_resource.id
-  http_method   = "POST"
-  authorization = "NONE"
-}
-
-resource "aws_api_gateway_integration" "post_lambda_integration" {
-  rest_api_id             = aws_api_gateway_rest_api.my_api.id
-  resource_id             = aws_api_gateway_resource.my_resource.id
-  http_method             = aws_api_gateway_method.post_method.http_method
-  integration_http_method = "POST"
-  type                    = "AWS_PROXY"
-  uri                     = aws_lambda_function.my_lambda.invoke_arn
-}
-
-resource "aws_api_gateway_method_response" "post_method_response" {
-  rest_api_id = aws_api_gateway_rest_api.my_api.id
-  resource_id = aws_api_gateway_resource.my_resource.id
-  http_method = aws_api_gateway_method.post_method.http_method
-  status_code = "200"
-
-  response_parameters = {
-    "method.response.header.Access-Control-Allow-Origin" = true
-  }
-}
-
-
+#   response_parameters = {
+#     "method.response.header.Access-Control-Allow-Origin" = true
+#   }
+# }
 
 resource "aws_lambda_permission" "api_gateway_permission" {
   statement_id  = "AllowAPIGatewayInvoke"
@@ -143,7 +113,7 @@ resource "aws_lambda_permission" "api_gateway_permission" {
 
 
 resource "aws_api_gateway_deployment" "methods" {
-  depends_on  = [aws_api_gateway_integration.get_lambda_integration, aws_api_gateway_integration.post_lambda_integration]
+  depends_on  = [aws_api_gateway_integration.get_lambda_integration]
   rest_api_id = aws_api_gateway_rest_api.my_api.id
 }
 

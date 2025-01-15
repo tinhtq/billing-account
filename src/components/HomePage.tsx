@@ -14,29 +14,16 @@ const HomePage: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://4xg0c7nem8.execute-api.us-east-1.amazonaws.com/prod/accounts"
+          "https://p9s0cgjj6j.execute-api.us-east-1.amazonaws.com/prod/accounts"
         )
-        const accountIds = await response.json()
-        console.log("Fetched account IDs:", accountIds)
-        const fetchedData = await Promise.all(
-          accountIds.map(async (account_id: string, index: number) => {
-            // const costResponse = await fetch(
-            //   "https://4xg0c7nem8.execute-api.us-east-1.amazonaws.com/prod/accounts",
-            //   {
-            //     method: "POST",
-            //     headers: {
-            //       "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify({ account_id }),
-            //   }
-            // )
-            // const costData = await costResponse.json()
-            return {
-              id: index + 1,
-              account_id,
-              // cost: costData.monthly_billing,
-              cost: "10",
-            }
+        const accountCosts = await response.json()
+        console.log("Fetched account costs:", accountCosts)
+
+        const fetchedData = accountCosts.map(
+          (account: { account_id: string; cost: number }, index: number) => ({
+            id: index + 1,
+            account_id: account.account_id,
+            cost: account.cost,
           })
         )
 
