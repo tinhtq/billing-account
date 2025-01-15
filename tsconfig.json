@@ -1,5 +1,5 @@
 {
-  "include": ["src"],
+  "include": ["src", "src/routes/Billing.tsx"],
   "compilerOptions": {
     "esModuleInterop": true,
     "jsx": "react"
