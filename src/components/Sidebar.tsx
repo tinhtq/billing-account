@@ -1,15 +1,37 @@
 import React, { useState } from "react"
-import * as FaIcons from "react-icons/fa"
 import * as AiIcons from "react-icons/ai"
 import { Link } from "react-router-dom"
-import { SidebarData } from "./SidebarData"
 import "../styles/App.css"
 import { IconContext } from "react-icons"
+import * as IoIcons from "react-icons/io"
+import { MdMenuBook } from "react-icons/md"
 
-function Navbar() {
+const SidebarData = [
+  {
+    title: "Home",
+    path: "/",
+    icon: <AiIcons.AiFillHome />,
+    cName: "nav-text",
+  },
+  {
+    title: "Billing",
+    path: "/billing",
+    icon: <IoIcons.IoIosPaper />,
+    cName: "nav-text",
+  },
+]
+
+function Navbar({
+  toggleSidebar,
+}: {
+  toggleSidebar: (active: boolean) => void
+}) {
   const [sidebar, setSidebar] = useState(false)
 
-  const showSidebar = () => setSidebar(!sidebar)
+  const showSidebar = () => {
+    setSidebar(!sidebar)
+    toggleSidebar(!sidebar)
+  }
 
   return (
     <>
@@ -17,7 +39,7 @@ function Navbar() {
         <div className="navbar">
           <Link to="#" className="menu-bars">
             <button onClick={showSidebar}>
-              <FaIcons.FaBars />
+              <MdMenuBook />
             </button>
           </Link>
         </div>
