@@ -20,13 +20,13 @@
 }
 
 /* Navbar CSS */
-.navbar {
+/* .navbar {
   background-color: #ffffff;
   height: 80px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-}
+} */
 
 .menu-bars {
   margin-left: 2rem;
@@ -93,4 +93,13 @@
 
 span {
   margin-left: 16px;
+}
+
+.main-content {
+  margin-left: 0;
+  transition: 0.3s;
+}
+
+.main-content.shifted {
+  margin-left: 250px; /* Same as sidebar width */
 }
